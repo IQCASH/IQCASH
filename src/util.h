@@ -13,7 +13,7 @@
 #define BITCOIN_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/monetaryunit-config.h"
+#include "config/iqcash-config.h"
 #endif
 
 #include "compat.h"
@@ -33,14 +33,14 @@
 // Debugging macros
 // Uncomment the following line to enable debugging messages
 // or enable on a per file basis prior to inclusion of util.h
-//#define ENABLE_MONETARYUNIT_DEBUG
-#ifdef ENABLE_MONETARYUNIT_DEBUG
+//#define ENABLE_IQCASH_DEBUG
+#ifdef ENABLE_IQCASH_DEBUG
 #define DBG( x ) x
 #else
 #define DBG( x )
 #endif
 
-//MonetaryUnit only features
+//IQCash only features
 
 extern bool fMasterNode;
 extern bool fLiteMode;
@@ -48,7 +48,7 @@ extern bool fEnableSwiftTX;
 extern int nSwiftTXDepth;
 extern const int64_t AUTOMINT_DELAY;
 extern int nPreferredDenom;
-extern int nAnonymizeMonetaryUnitAmount;
+extern int nAnonymizeIQCashAmount;
 extern int nLiquidityProvider;
 extern int64_t enforceMasternodePaymentsTime;
 extern std::string strMasterNodeAddr;
@@ -222,7 +222,7 @@ void RenameThread(const char* name);
 template <typename Callable>
 void TraceThread(const char* name, Callable func)
 {
-    std::string s = strprintf("monetaryunit-%s", name);
+    std::string s = strprintf("iqcash-%s", name);
     RenameThread(s.c_str());
     try {
         LogPrintf("%s thread start\n", name);

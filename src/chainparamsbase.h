@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between monetaryunit-cli and monetaryunitd)
- * of a given instance of the MonetaryUnit system.
+ * CBaseChainParams defines the base parameters (shared between iqcash-cli and iqcashd)
+ * of a given instance of the IQCash system.
  */
 class CBaseChainParams
 {

@@ -83,19 +83,19 @@ class Node :
 		self._nodeIndex = nodeIndex
 		self._nodePath = os.path.join(self._app.getRootPath(), 'node%d' % (nodeIndex))
 		self._rpcUser = 'rpcuser%d' % (nodeIndex)
-		self._monetaryunitd = self._app.getMonetaryunitd()
-		self._monetaryunitCli = self._app.getMonetaryunitCli()
+		self._iqcashd = self._app.getIqcashd()
+		self._iqcashCli = self._app.getIqcashCli()
 		self._daemonProcess = None
 
 	def createDataDir(self, nodeCount, masterNodePrivateKey = None) :
 		makeDirs(self._nodePath)
 		writeFile(
-			os.path.join(self._nodePath, 'monetaryunit.conf'),
-			self._generateMonetaryunitConf(nodeCount, masterNodePrivateKey)
+			os.path.join(self._nodePath, 'iqcash.conf'),
+			self._generateIqcashConf(nodeCount, masterNodePrivateKey)
 		)
 		
 	def startNode(self) :
-		self._daemonProcess = subprocess.Popen([ self._monetaryunitd, '-datadir=' + self._nodePath, '-daemon' ])
+		self._daemonProcess = subprocess.Popen([ self._iqcashd, '-datadir=' + self._nodePath, '-daemon' ])
 		
 	def stopNode(self) :
 		self.executeCli('stop')
@@ -108,7 +108,7 @@ class Node :
 		normalizedArgs = []
 		for arg in args :
 			normalizedArgs.append(str(arg))
-		output = executeCommand(self._monetaryunitCli, '-datadir=' + self._nodePath, *normalizedArgs)
+		output = executeCommand(self._iqcashCli, '-datadir=' + self._nodePath, *normalizedArgs)
 		command = ' '.join(normalizedArgs)
 		if output.find('error') >= 0 :
 			return {
@@ -137,13 +137,13 @@ class Node :
 		print('waitNodeStarting failed')
 		return False
 
-	def _generateMonetaryunitConf(self, nodeCount, masterNodePrivateKey) :
+	def _generateIqcashConf(self, nodeCount, masterNodePrivateKey) :
 		result = ""
 		result += "regtest=1\n"
 		result += "server=1\n"
 		result += "debug=1\n"
 		result += "debug=net\n"
-		result += "debug=monetaryunit\n"
+		result += "debug=iqcash\n"
 		result += "rpcuser=%s\n" % (self._rpcUser)
 		result += "rpcpassword=%s\n" % (self._rpcPassword)
 		result += "port=%d\n" % (getNodePort(self._nodeIndex))
@@ -199,13 +199,13 @@ class Application :
 		makeDirs(self._rootPath)
 		print('Root path: %s' % (self._rootPath))
 		
-		self._monetaryunitd = os.getenv('MONETARYUNITD', None)
-		if not self._monetaryunitd :
-			die('Undefined MONETARYUNITD')
-		self._monetaryunitCli = os.getenv('MONETARYUNITCLI', None)
-		if not self._monetaryunitCli :
-			die('Undefined MONETARYUNIT')
-		print('monetaryunitd: %s' % (self._monetaryunitd))
+		self._iqcashd = os.getenv('IQCASHD', None)
+		if not self._iqcashd :
+			die('Undefined IQCASHD')
+		self._iqcashCli = os.getenv('IQCASHCLI', None)
+		if not self._iqcashCli :
+			die('Undefined IQCASH')
+		print('iqcashd: %s' % (self._iqcashd))
 	
 	def _cleanup(self) :
 		self._stopAllNodes()
@@ -411,11 +411,11 @@ class Application :
 	def getRootPath(self) :
 		return self._rootPath
 		
-	def getMonetaryunitd(self) :
-		return self._monetaryunitd
+	def getIqcashd(self) :
+		return self._iqcashd
 
-	def getMonetaryunitCli(self) :
-		return self._monetaryunitCli
+	def getIqcashCli(self) :
+		return self._iqcashCli
 
 if __name__ == '__main__':
     Application().run()

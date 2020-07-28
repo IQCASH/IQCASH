@@ -31,7 +31,7 @@ commitFiles=true
 read -r -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the monetaryunit, gitian-builder, gitian.sigs, and IQCash-detached-sigs.
+Run this script from the directory containing the iqcash, gitian-builder, gitian.sigs, and IQCash-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -252,7 +252,7 @@ then
 fi
 
 # Set up build
-pushd ./monetaryunit || exit
+pushd ./iqcash || exit
 git fetch
 git checkout "${COMMIT}"
 popd || exit
@@ -261,7 +261,7 @@ popd || exit
 if [[ $build = true ]]
 then
 	# Make output folder
-	mkdir -p "./monetaryunit-binaries/${VERSION}"
+	mkdir -p "./iqcash-binaries/${VERSION}"
 
 	# Build Dependencies
 	echo ""
@@ -271,7 +271,7 @@ then
 	mkdir -p inputs
 	wget -N -P inputs $osslPatchUrl
 	wget -N -P inputs $osslTarUrl
-	make -C ../monetaryunit/depends download SOURCES_PATH="$(pwd)/cache/common"
+	make -C ../iqcash/depends download SOURCES_PATH="$(pwd)/cache/common"
 
 	# Linux
 	if [[ $linux = true ]]
@@ -279,9 +279,9 @@ then
             echo ""
 	    echo "Compiling ${VERSION} Linux"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit monetaryunit=${COMMIT} --url monetaryunit=${url} ../monetaryunit/contrib/gitian-descriptors/gitian-linux.yml
-	    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../monetaryunit/contrib/gitian-descriptors/gitian-linux.yml
-	    mv build/out/monetaryunit-*.tar.gz build/out/src/monetaryunit-*.tar.gz ../monetaryunit-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit iqcash=${COMMIT} --url iqcash=${url} ../iqcash/contrib/gitian-descriptors/gitian-linux.yml
+	    ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../iqcash/contrib/gitian-descriptors/gitian-linux.yml
+	    mv build/out/iqcash-*.tar.gz build/out/src/iqcash-*.tar.gz ../iqcash-binaries/${VERSION}
 	fi
 	# Windows
 	if [[ $windows = true ]]
@@ -289,10 +289,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit monetaryunit=${COMMIT} --url monetaryunit=${url} ../monetaryunit/contrib/gitian-descriptors/gitian-win.yml
-	    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../monetaryunit/contrib/gitian-descriptors/gitian-win.yml
-	    mv build/out/monetaryunit-*-win-unsigned.tar.gz inputs/monetaryunit-win-unsigned.tar.gz
-	    mv build/out/monetaryunit-*.zip build/out/monetaryunit-*.exe ../monetaryunit-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit iqcash=${COMMIT} --url iqcash=${url} ../iqcash/contrib/gitian-descriptors/gitian-win.yml
+	    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../iqcash/contrib/gitian-descriptors/gitian-win.yml
+	    mv build/out/iqcash-*-win-unsigned.tar.gz inputs/iqcash-win-unsigned.tar.gz
+	    mv build/out/iqcash-*.zip build/out/iqcash-*.exe ../iqcash-binaries/${VERSION}
 	fi
 	# Mac OSX
 	if [[ $osx = true ]]
@@ -300,10 +300,10 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit monetaryunit=${COMMIT} --url monetaryunit=${url} ../monetaryunit/contrib/gitian-descriptors/gitian-osx.yml
-	    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../monetaryunit/contrib/gitian-descriptors/gitian-osx.yml
-	    mv build/out/monetaryunit-*-osx-unsigned.tar.gz inputs/monetaryunit-osx-unsigned.tar.gz
-	    mv build/out/monetaryunit-*.tar.gz build/out/monetaryunit-*.dmg ../monetaryunit-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit iqcash=${COMMIT} --url iqcash=${url} ../iqcash/contrib/gitian-descriptors/gitian-osx.yml
+	    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../iqcash/contrib/gitian-descriptors/gitian-osx.yml
+	    mv build/out/iqcash-*-osx-unsigned.tar.gz inputs/iqcash-osx-unsigned.tar.gz
+	    mv build/out/iqcash-*.tar.gz build/out/iqcash-*.dmg ../iqcash-binaries/${VERSION}
 	fi
 	# AArch64
 	if [[ $aarch64 = true ]]
@@ -311,9 +311,9 @@ then
 	    echo ""
 	    echo "Compiling ${VERSION} AArch64"
 	    echo ""
-	    ./bin/gbuild -j ${proc} -m ${mem} --commit monetaryunit=${COMMIT} --url monetaryunit=${url} ../monetaryunit/contrib/gitian-descriptors/gitian-aarch64.yml
-	    ./bin/gsign --signer $SIGNER --release ${VERSION}-aarch64 --destination ../gitian.sigs/ ../monetaryunit/contrib/gitian-descriptors/gitian-aarch64.yml
-	    mv build/out/monetaryunit-*.tar.gz build/out/src/monetaryunit-*.tar.gz ../monetaryunit-binaries/${VERSION}
+	    ./bin/gbuild -j ${proc} -m ${mem} --commit iqcash=${COMMIT} --url iqcash=${url} ../iqcash/contrib/gitian-descriptors/gitian-aarch64.yml
+	    ./bin/gsign --signer $SIGNER --release ${VERSION}-aarch64 --destination ../gitian.sigs/ ../iqcash/contrib/gitian-descriptors/gitian-aarch64.yml
+	    mv build/out/iqcash-*.tar.gz build/out/src/iqcash-*.tar.gz ../iqcash-binaries/${VERSION}
 	fi
 	popd || exit
 
@@ -341,32 +341,32 @@ then
 	echo ""
 	echo "Verifying v${VERSION} Linux"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../monetaryunit/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-linux ../iqcash/contrib/gitian-descriptors/gitian-linux.yml
 	# Windows
 	echo ""
 	echo "Verifying v${VERSION} Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../monetaryunit/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-unsigned ../iqcash/contrib/gitian-descriptors/gitian-win.yml
 	# Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../monetaryunit/contrib/gitian-descriptors/gitian-osx.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-unsigned ../iqcash/contrib/gitian-descriptors/gitian-osx.yml
 	# AArch64
 	echo ""
 	echo "Verifying v${VERSION} AArch64"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-aarch64 ../monetaryunit/contrib/gitian-descriptors/gitian-aarch64.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-aarch64 ../iqcash/contrib/gitian-descriptors/gitian-aarch64.yml
 	# Signed Windows
 	echo ""
 	echo "Verifying v${VERSION} Signed Windows"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../monetaryunit/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../iqcash/contrib/gitian-descriptors/gitian-osx-signer.yml
 	# Signed Mac OSX
 	echo ""
 	echo "Verifying v${VERSION} Signed Mac OSX"
 	echo ""
-	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../monetaryunit/contrib/gitian-descriptors/gitian-osx-signer.yml
+	./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../iqcash/contrib/gitian-descriptors/gitian-osx-signer.yml
 	popd || exit
 fi
 
@@ -381,10 +381,10 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Windows"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../monetaryunit/contrib/gitian-descriptors/gitian-win-signer.yml
-	    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../monetaryunit/contrib/gitian-descriptors/gitian-win-signer.yml
-	    mv build/out/monetaryunit-*win64-setup.exe ../monetaryunit-binaries/${VERSION}
-	    mv build/out/monetaryunit-*win32-setup.exe ../monetaryunit-binaries/${VERSION}
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../iqcash/contrib/gitian-descriptors/gitian-win-signer.yml
+	    ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../iqcash/contrib/gitian-descriptors/gitian-win-signer.yml
+	    mv build/out/iqcash-*win64-setup.exe ../iqcash-binaries/${VERSION}
+	    mv build/out/iqcash-*win32-setup.exe ../iqcash-binaries/${VERSION}
 	fi
 	# Sign Mac OSX
 	if [[ $osx = true ]]
@@ -392,9 +392,9 @@ then
 	    echo ""
 	    echo "Signing ${VERSION} Mac OSX"
 	    echo ""
-	    ./bin/gbuild -i --commit signature=${COMMIT} ../monetaryunit/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../monetaryunit/contrib/gitian-descriptors/gitian-osx-signer.yml
-	    mv build/out/monetaryunit-osx-signed.dmg ../monetaryunit-binaries/${VERSION}/monetaryunit-${VERSION}-osx.dmg
+	    ./bin/gbuild -i --commit signature=${COMMIT} ../iqcash/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../iqcash/contrib/gitian-descriptors/gitian-osx-signer.yml
+	    mv build/out/iqcash-osx-signed.dmg ../iqcash-binaries/${VERSION}/iqcash-${VERSION}-osx.dmg
 	fi
 	popd || exit
 

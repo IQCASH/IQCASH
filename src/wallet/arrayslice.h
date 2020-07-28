@@ -17,8 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MONETARYUNIT_ARRAYSLICE_H
-#define MONETARYUNIT_ARRAYSLICE_H
+#ifndef IQCASH_ARRAYSLICE_H
+#define IQCASH_ARRAYSLICE_H
 
 #include <array>
 
@@ -42,4 +42,4 @@ private:
     const Iterable* end_;
 };
 
-#endif //MONETARYUNIT_ARRAYSLICE_H
+#endif //IQCASH_ARRAYSLICE_H

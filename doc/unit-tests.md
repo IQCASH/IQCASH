@@ -6,13 +6,13 @@ and tests weren't explicitly disabled.
 
 After configuring, they can be run with 'make check'.
 
-To run the monetaryunitd tests manually, launch src/test/test_monetaryunit .
+To run the iqcashd tests manually, launch src/test/test_iqcash .
 
-To add more monetaryunitd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
+To add more iqcashd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the test/ directory or add new .cpp files that
 implement new BOOST_AUTO_TEST_SUITE sections.
 
-To run the monetaryunit-qt tests manually, launch src/qt/test/monetaryunit-qt_test
+To run the iqcash-qt tests manually, launch src/qt/test/iqcash-qt_test
 
-To add more monetaryunit-qt tests, add them to the `src/qt/test/` directory and
+To add more iqcash-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.

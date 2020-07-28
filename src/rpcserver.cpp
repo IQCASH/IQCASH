@@ -269,10 +269,10 @@ UniValue stop(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop MonetaryUnit server.");
+            "\nStop IQCash server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "MonetaryUnit server stopping";
+    return "IQCash server stopping";
 }
 
 
@@ -355,38 +355,38 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* MonetaryUnit features */
-        {"monetaryunit", "masternode", &masternode, true, true, false},
-        {"monetaryunit", "listmasternodes", &listmasternodes, true, true, false},
-        {"monetaryunit", "createmasternodebroadcast", &createmasternodebroadcast, true, true, false},
-        {"monetaryunit", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
-        {"monetaryunit", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
-        {"monetaryunit", "getmasternodecount", &getmasternodecount, true, true, false},
-        {"monetaryunit", "masternodeconnect", &masternodeconnect, true, true, false},
-        {"monetaryunit", "masternodecurrent", &masternodecurrent, true, true, false},
-        {"monetaryunit", "masternodedebug", &masternodedebug, true, true, false},
-        {"monetaryunit", "startmasternode", &startmasternode, true, true, false},
-        {"monetaryunit", "createmasternodekey", &createmasternodekey, true, true, false},
-        {"monetaryunit", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
-        {"monetaryunit", "listmasternodeconf", &listmasternodeconf, true, true, false},
-        {"monetaryunit", "getmasternodestatus", &getmasternodestatus, true, true, false},
-        {"monetaryunit", "getmasternodewinners", &getmasternodewinners, true, true, false},
-        {"monetaryunit", "getmasternodescores", &getmasternodescores, true, true, false},
-        {"monetaryunit", "mnbudget", &mnbudget, true, true, false},
-        {"monetaryunit", "preparebudget", &preparebudget, true, true, false},
-        {"monetaryunit", "submitbudget", &submitbudget, true, true, false},
-        {"monetaryunit", "mnbudgetvote", &mnbudgetvote, true, true, false},
-        {"monetaryunit", "getbudgetvotes", &getbudgetvotes, true, true, false},
-        {"monetaryunit", "getnextsuperblock", &getnextsuperblock, true, true, false},
-        {"monetaryunit", "getbudgetprojection", &getbudgetprojection, true, true, false},
-        {"monetaryunit", "getbudgetinfo", &getbudgetinfo, true, true, false},
-        {"monetaryunit", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
-        {"monetaryunit", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        {"monetaryunit", "checkbudgets", &checkbudgets, true, true, false},
-        {"monetaryunit", "mnsync", &mnsync, true, true, false},
-        {"monetaryunit", "spork", &spork, true, true, false},
-        {"monetaryunit", "getpoolinfo", &getpoolinfo, true, true, false},
-        {"monetaryunit", "makekeypair", &makekeypair, true, true, false},
+        /* IQCash features */
+        {"iqcash", "masternode", &masternode, true, true, false},
+        {"iqcash", "listmasternodes", &listmasternodes, true, true, false},
+        {"iqcash", "createmasternodebroadcast", &createmasternodebroadcast, true, true, false},
+        {"iqcash", "decodemasternodebroadcast", &decodemasternodebroadcast, true, true, false},
+        {"iqcash", "relaymasternodebroadcast", &relaymasternodebroadcast, true, true, false},
+        {"iqcash", "getmasternodecount", &getmasternodecount, true, true, false},
+        {"iqcash", "masternodeconnect", &masternodeconnect, true, true, false},
+        {"iqcash", "masternodecurrent", &masternodecurrent, true, true, false},
+        {"iqcash", "masternodedebug", &masternodedebug, true, true, false},
+        {"iqcash", "startmasternode", &startmasternode, true, true, false},
+        {"iqcash", "createmasternodekey", &createmasternodekey, true, true, false},
+        {"iqcash", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
+        {"iqcash", "listmasternodeconf", &listmasternodeconf, true, true, false},
+        {"iqcash", "getmasternodestatus", &getmasternodestatus, true, true, false},
+        {"iqcash", "getmasternodewinners", &getmasternodewinners, true, true, false},
+        {"iqcash", "getmasternodescores", &getmasternodescores, true, true, false},
+        {"iqcash", "mnbudget", &mnbudget, true, true, false},
+        {"iqcash", "preparebudget", &preparebudget, true, true, false},
+        {"iqcash", "submitbudget", &submitbudget, true, true, false},
+        {"iqcash", "mnbudgetvote", &mnbudgetvote, true, true, false},
+        {"iqcash", "getbudgetvotes", &getbudgetvotes, true, true, false},
+        {"iqcash", "getnextsuperblock", &getnextsuperblock, true, true, false},
+        {"iqcash", "getbudgetprojection", &getbudgetprojection, true, true, false},
+        {"iqcash", "getbudgetinfo", &getbudgetinfo, true, true, false},
+        {"iqcash", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
+        {"iqcash", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"iqcash", "checkbudgets", &checkbudgets, true, true, false},
+        {"iqcash", "mnsync", &mnsync, true, true, false},
+        {"iqcash", "spork", &spork, true, true, false},
+        {"iqcash", "getpoolinfo", &getpoolinfo, true, true, false},
+        {"iqcash", "makekeypair", &makekeypair, true, true, false},
 #ifdef ENABLE_WALLET
         /* Wallet */
         {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
@@ -603,7 +603,7 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> monetaryunit-cli " + methodname + " " + args + "\n";
+    return "> iqcash-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)

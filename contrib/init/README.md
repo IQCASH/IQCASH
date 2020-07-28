@@ -1,10 +1,10 @@
 Sample configuration files for:
 
-SystemD: monetaryunitd.service
-Upstart: monetaryunitd.conf
-OpenRC:  monetaryunitd.openrc
-         monetaryunitd.openrcconf
-CentOS:  monetaryunitd.init
+SystemD: iqcashd.service
+Upstart: iqcashd.conf
+OpenRC:  iqcashd.openrc
+         iqcashd.openrcconf
+CentOS:  iqcashd.init
 
 have been made available to assist packagers in creating node packages here.
 

@@ -21,8 +21,8 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-#ifndef MONETARYUNIT_BIP39_H
-#define MONETARYUNIT_BIP39_H
+#ifndef IQCASH_BIP39_H
+#define IQCASH_BIP39_H
 
 #include "allocators.h"
 

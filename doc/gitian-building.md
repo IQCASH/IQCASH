@@ -1,9 +1,9 @@
 Gitian building
 ================
 
-*Setup instructions for a Gitian build of MonetaryUnit Core using a VM or physical system.*
+*Setup instructions for a Gitian build of IQCash Core using a VM or physical system.*
 
-Gitian is the deterministic build process that is used to build the MonetaryUnit
+Gitian is the deterministic build process that is used to build the IQCash
 Core executables. It provides a way to be reasonably sure that the
 executables are really built from the git source. It also makes sure that
 the same, tested dependencies are used and statically built into the executable.
@@ -22,7 +22,7 @@ Table of Contents
 
 - [Preparing the Gitian builder host](#preparing-the-gitian-builder-host)
 - [Getting and building the inputs](#getting-and-building-the-inputs)
-- [Building MonetaryUnit Core](#building-monetaryunit-core)
+- [Building IQCash Core](#building-iqcash-core)
 - [Building an alternative repository](#building-an-alternative-repository)
 - [Signing externally](#signing-externally)
 - [Uploading signatures](#uploading-signatures)
@@ -57,16 +57,16 @@ At this point you have two options, you can either use the automated script (fou
 If you are using the automated script, then run it with the `--setup` command. Afterwards, run it with the `--build` command (example: `contrib/gitian-build.sh -b signer 0.15.0`). Otherwise ignore this.
 
 Follow the instructions in [https://github.com/IQCASH/IQCash/blob/master/doc/release-process.md](https://github.com/IQCASH/IQCash/blob/master/doc/release-process.md#fetch-and-create-inputs-first-time-or-when-dependency-versions-change)
-in the monetaryunit repository under 'Fetch and create inputs' to install sources which require
+in the iqcash repository under 'Fetch and create inputs' to install sources which require
 manual intervention. Also optionally follow the next step: 'Seed the Gitian sources cache
 and offline git repositories' which will fetch the remaining files required for building
 offline.
 
-Building MonetaryUnit Core
+Building IQCash Core
 ----------------
 
-To build MonetaryUnit Core (for Linux, OS X and Windows) just follow the steps under 'perform
-Gitian builds' in [https://github.com/IQCASH/IQCash/blob/master/doc/release-process.md](https://github.com/IQCASH/IQCash/blob/master/doc/release-process.md#setup-and-perform-gitian-builds) in the monetaryunit repository.
+To build IQCash Core (for Linux, OS X and Windows) just follow the steps under 'perform
+Gitian builds' in [https://github.com/IQCASH/IQCash/blob/master/doc/release-process.md](https://github.com/IQCASH/IQCash/blob/master/doc/release-process.md#setup-and-perform-gitian-builds) in the iqcash repository.
 
 This may take some time as it will build all the dependencies needed for each descriptor.
 These dependencies will be cached after a successful build to avoid rebuilding them when possible.
@@ -80,7 +80,7 @@ tail -f var/build.log
 
 Output from `gbuild` will look something like
 
-    Initialized empty Git repository in /home/gitianuser/gitian-builder/inputs/monetaryunit/.git/
+    Initialized empty Git repository in /home/gitianuser/gitian-builder/inputs/iqcash/.git/
     remote: Counting objects: 57959, done.
     remote: Total 57959 (delta 0), reused 0 (delta 0), pack-reused 57958
     Receiving objects: 100% (57959/57959), 53.76 MiB | 484.00 KiB/s, done.
@@ -113,16 +113,16 @@ For example:
 ```bash
 URL=https://github.com/laanwj/bitcoin.git
 COMMIT=2014_03_windows_unicode_path
-./bin/gbuild --commit monetaryunit=${COMMIT} --url monetaryunit=${URL} ../monetaryunit/contrib/gitian-descriptors/gitian-linux.yml
-./bin/gbuild --commit monetaryunit=${COMMIT} --url monetaryunit=${URL} ../monetaryunit/contrib/gitian-descriptors/gitian-win.yml
-./bin/gbuild --commit monetaryunit=${COMMIT} --url monetaryunit=${URL} ../monetaryunit/contrib/gitian-descriptors/gitian-osx.yml
+./bin/gbuild --commit iqcash=${COMMIT} --url iqcash=${URL} ../iqcash/contrib/gitian-descriptors/gitian-linux.yml
+./bin/gbuild --commit iqcash=${COMMIT} --url iqcash=${URL} ../iqcash/contrib/gitian-descriptors/gitian-win.yml
+./bin/gbuild --commit iqcash=${COMMIT} --url iqcash=${URL} ../iqcash/contrib/gitian-descriptors/gitian-osx.yml
 ```
 
 Building fully offline
 -----------------------
 
 For building fully offline including attaching signatures to unsigned builds, the detached-sigs repository
-and the monetaryunit git repository with the desired tag must both be available locally, and then gbuild must be
+and the iqcash git repository with the desired tag must both be available locally, and then gbuild must be
 told where to find them. It also requires an apt-cacher-ng which is fully-populated but set to offline mode, or
 manually disabling gitian-builder's use of apt-get to update the VM build environment.
 
@@ -141,7 +141,7 @@ cd /path/to/gitian-builder
 LXC_ARCH=amd64 LXC_SUITE=trusty on-target -u root apt-get update
 LXC_ARCH=amd64 LXC_SUITE=trusty on-target -u root \
   -e DEBIAN_FRONTEND=noninteractive apt-get --no-install-recommends -y install \
-  $( sed -ne '/^packages:/,/[^-] .*/ {/^- .*/{s/"//g;s/- //;p}}' ../monetaryunit/contrib/gitian-descriptors/*|sort|uniq )
+  $( sed -ne '/^packages:/,/[^-] .*/ {/^- .*/{s/"//g;s/- //;p}}' ../iqcash/contrib/gitian-descriptors/*|sort|uniq )
 LXC_ARCH=amd64 LXC_SUITE=trusty on-target -u root apt-get -q -y purge grub
 LXC_ARCH=amd64 LXC_SUITE=trusty on-target -u root -e DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade
 ```
@@ -163,10 +163,10 @@ Then when building, override the remote URLs that gbuild would otherwise pull fr
 cd /some/root/path/
 git clone https://github.com/IQCASH/IQCash-detached-sigs.git
 
-BTCPATH=/some/root/path/monetaryunit
+BTCPATH=/some/root/path/iqcash
 SIGPATH=/some/root/path/IQCash-detached-sigs
 
-./bin/gbuild --url monetaryunit=${BTCPATH},signature=${SIGPATH} ../monetaryunit/contrib/gitian-descriptors/gitian-win-signer.yml
+./bin/gbuild --url iqcash=${BTCPATH},signature=${SIGPATH} ../iqcash/contrib/gitian-descriptors/gitian-win-signer.yml
 ```
 
 Signing externally
@@ -181,9 +181,9 @@ When you execute `gsign` you will get an error from GPG, which can be ignored. C
 in `gitian.sigs` to your signing machine and do
 
 ```bash
-    gpg --detach-sign ${VERSION}-linux/${SIGNER}/monetaryunit-linux-build.assert
-    gpg --detach-sign ${VERSION}-win/${SIGNER}/monetaryunit-win-build.assert
-    gpg --detach-sign ${VERSION}-osx-unsigned/${SIGNER}/monetaryunit-osx-build.assert
+    gpg --detach-sign ${VERSION}-linux/${SIGNER}/iqcash-linux-build.assert
+    gpg --detach-sign ${VERSION}-win/${SIGNER}/iqcash-win-build.assert
+    gpg --detach-sign ${VERSION}-osx-unsigned/${SIGNER}/iqcash-osx-build.assert
 ```
 
 This will create the `.sig` files that can be committed together with the `.assert` files to assert your
@@ -193,5 +193,5 @@ Uploading signatures
 ---------------------
 
 After building and signing you can push your signatures (both the `.assert` and `.assert.sig` files) to the
-[monetaryunitproject/gitian.sigs](https://github.com/IQCASH/gitian.sigs/) repository, or if that's not possible create a pull
+[iqcashproject/gitian.sigs](https://github.com/IQCASH/gitian.sigs/) repository, or if that's not possible create a pull
 request. You can also mail the files to Wladimir (laanwj@gmail.com) and he will commit them.
