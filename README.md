@@ -35,9 +35,9 @@ IQCash is a cutting edge cryptocurrency, with many features not available in mos
 [Source Code](https://github.com/IQCASH/IQCash)
 
 * Links:
-![Homepage](https://img.shields.io/badge/HomePage-Iq.cash-brightgreen) | ![Discord](https://img.shields.io/discord/452097057260568598?style=social) | ![Twitter Follow](https://img.shields.io/twitter/follow/IQ_Crypto?style=social)
-
-
+[![Homepage](https://img.shields.io/badge/HomePage-Iq.cash-brightgreen)](https://iq.cash)
+[![Discord](https://img.shields.io/discord/452097057260568598?style=social)](https://discord.gg/Ruc4K4V)
+[![Twitter Follow](https://img.shields.io/twitter/follow/IQ_Crypto?style=social)](https://twitter.com/IQ_Crypto)
 
 ## Nodes & ports ##
 dns1.iq.cash<br>
