@@ -23,8 +23,8 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
 Homepage: http://www.monetaryunit.org
-Vcs-Git: git://github.com/monetaryunitproject/MonetaryUnit.git
-Vcs-Browser: http://github.com/monetaryunitproject/MonetaryUnit
+Vcs-Git: git://github.com/IQCASH/IQCash.git
+Vcs-Browser: http://github.com/IQCASH/IQCash
 
 Package: monetaryunitd
 Architecture: any

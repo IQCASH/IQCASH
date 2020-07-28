@@ -79,9 +79,9 @@ Clone the git repositories for monetaryunit and Gitian.
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/monetaryunit/monetaryunit
-git clone https://github.com/monetaryunitproject/gitian.sigs.git
-git clone https://github.com/monetaryunitproject/monetaryunit-detached-sigs.git
+git clone https://github.com/IQCASH/IQCash
+git clone https://github.com/IQCASH/gitian.sigs.git
+git clone https://github.com/IQCASH/IQCash-detached-sigs.git
 ```
 
 Setting up the Gitian image

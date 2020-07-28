@@ -1,13 +1,13 @@
 MonetaryUnit Core version 3.0.4 is now available from:
 
-  <https://github.com/monetaryunitproject/monetaryunit/releases>
+  <https://github.com/IQCASH/IQCash/releases>
 
 This is a new minor-revision version release, including various bug fixes and
 performance improvements, as well as updated translations.
 
 Please report bugs using the issue tracker at github:
 
-  <https://github.com/monetaryunitproject/monetaryunit/issues>
+  <https://github.com/IQCASH/IQCash/issues>
 
 
 Mandatory Update

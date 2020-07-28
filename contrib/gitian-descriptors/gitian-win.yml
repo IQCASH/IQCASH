@@ -22,7 +22,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://github.com/muecoin/mue.git"
+- "url": "https://github.com/IQCASH/IQCash.git"
   "dir": "mue"
 files: []
 script: |

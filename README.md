@@ -30,8 +30,8 @@ MonetaryUnit is a cutting edge cryptocurrency, with many features not available 
 
 ## MUE resources ##
 * Client & Source:
-[Client Binaries](https://github.com/muecoin/MUE/releases)
-[Source Code](https://github.com/muecoin/MUE)
+[Client Binaries](https://github.com/IQCASH/IQCash/releases)
+[Source Code](https://github.com/IQCASH/IQCash)
 * Links:
 [Homepage](https://www.monetaryunit.org)
 [CoinBuy](https://www.coinbuy.com)

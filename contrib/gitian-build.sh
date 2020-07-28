@@ -17,7 +17,7 @@ osx=true
 SIGNER=
 VERSION=
 commit=false
-url=https://github.com/monetaryunitproject/monetaryunit
+url=https://github.com/IQCASH/IQCash
 proc=2
 mem=2000
 lxc=true
@@ -31,7 +31,7 @@ commitFiles=true
 read -r -d '' usage <<- EOF
 Usage: $scriptName [-c|u|v|b|s|B|o|h|j|m|] signer version
 
-Run this script from the directory containing the monetaryunit, gitian-builder, gitian.sigs, and monetaryunit-detached-sigs.
+Run this script from the directory containing the monetaryunit, gitian-builder, gitian.sigs, and IQCash-detached-sigs.
 
 Arguments:
 signer          GPG signer to sign each build assert file
@@ -39,7 +39,7 @@ version		Version number, commit, or branch to build. If building a commit or bra
 
 Options:
 -c|--commit	Indicate that the version argument is for a commit or branch
--u|--url	Specify the URL of the repository. Default is https://github.com/monetaryunitproject/monetaryunit
+-u|--url	Specify the URL of the repository. Default is https://github.com/IQCASH/IQCash
 -v|--verify 	Verify the gitian build
 -b|--build	Do a gitian build
 -s|--sign	Make signed binaries for Windows and Mac OSX
@@ -237,8 +237,8 @@ echo "${COMMIT}"
 if [[ $setup = true ]]
 then
     sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
-    git clone https://github.com/monetaryunitproject/gitian.sigs.git
-    git clone https://github.com/monetaryunitproject/monetaryunit-detached-sigs.git
+    git clone https://github.com/IQCASH/gitian.sigs.git
+    git clone https://github.com/IQCASH/IQCash-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder || exit
     if [[ -n "$USE_LXC" ]]

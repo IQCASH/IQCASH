@@ -42,7 +42,7 @@ The following are developer notes on how to build MonetaryUnit on your native pl
 
 Development
 ---------------------
-The MonetaryUnit repo's [root README](https://github.com/monetaryunitproject/MonetaryUnit/blob/master/README.md) contains relevant information on the development process and automated testing.
+The MonetaryUnit repo's [root README](https://github.com/IQCASH/IQCash/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)

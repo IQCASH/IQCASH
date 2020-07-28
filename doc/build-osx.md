@@ -46,7 +46,7 @@ Instructions: Homebrew
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/monetaryunitproject/MonetaryUnit.git
+        git clone https://github.com/IQCASH/IQCash.git
         cd MonetaryUnit
 
 2.  Make the Homebrew OpenSSL headers visible to the configure script  (do ```brew info openssl``` to find out why this is necessary, or if you use Homebrew with installation folders different from the default).
@@ -180,7 +180,7 @@ Next, switch into your Downloads folder:
 
 The next step is to download the current version of the wallet from Github and go into that directory:
 
-```git clone https://github.com/monetaryunitproject/monetaryunit.git```
+```git clone https://github.com/IQCASH/IQCash.git```
 ```cd MonetaryUnit```
 
 Now set some configuration flags:
