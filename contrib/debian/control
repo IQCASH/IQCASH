@@ -1,8 +1,8 @@
 Source: iqcash
 Section: utils
 Priority: optional
-Maintainer: Mike Trisko <mike@phore.io>
-Uploaders: Mike Trisko <mike@phore.io>
+Maintainer: IQ Cash <support@iq.cash>
+Uploaders: Nagrath Dearmon <Nagrath_Dearmon@gmx.net>
 Build-Depends: debhelper,
  devscripts,
  automake,
@@ -22,7 +22,7 @@ Build-Depends: debhelper,
  libqrencode-dev,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
-Homepage: http://www.iqcash.org
+Homepage: http://www.iq.cash
 Vcs-Git: git://github.com/IQCASH/IQCash.git
 Vcs-Browser: http://github.com/IQCASH/IQCash
 

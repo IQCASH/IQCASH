@@ -1,5 +1,5 @@
 ---
-name: "iqcash-aarch64-2.1"
+name: "iqcash-aarch64-2.0"
 enable_cache: true
 suites:
 - "xenial"

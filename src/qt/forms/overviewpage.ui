@@ -677,7 +677,7 @@
                        <item row="4" column="0">
                         <widget class="QLabel" name="labelLockedBalanceText">
                          <property name="toolTip">
-                          <string>Locked ICS or Masternode collaterals. These are excluded from zICS minting.</string>
+                          <string>Locked ICS or Masternode collaterals. These are excluded from ICS minting.</string>
                          </property>
                          <property name="text">
                           <string>Locked:</string>

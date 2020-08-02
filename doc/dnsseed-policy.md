@@ -46,7 +46,7 @@ related to the DNS seed operation.
 If these expectations cannot be satisfied the operator should
 discontinue providing services and contact the active IQCash
 Core development team as well as posting on the
-[IQCash Forum](https://forum.iqcash.org).
+[IQCash Discord](http://discord.gg/Ruc4K4V).
 
 Behavior outside of these expectations may be reasonable in some
 situations but should be discussed in public in advance.

@@ -1,5 +1,5 @@
 ---
-name: "iqcash-win-2.1"
+name: "iqcash-win-2.0"
 enable_cache: true
 suites:
 - "trusty"
