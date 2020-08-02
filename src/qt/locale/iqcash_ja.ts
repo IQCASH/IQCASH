@@ -4590,8 +4590,8 @@ for example: alertnotify=echo %%s | mail -s &quot;IQCash Alert&quot; admin@foo.c
         <translation>設定ファイルにおいてmasternodeprivkey を設定してください。詳しくはガイドを確認ください。</translation>
     </message>
     <message>
-        <source>(19687 could be used only on mainnet)</source>
-        <translation>(メインネットでは19687のみを用いてください)</translation>
+        <source>(33541 could be used only on mainnet)</source>
+        <translation>(メインネットでは33541のみを用いてください)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -4602,8 +4602,8 @@ for example: alertnotify=echo %%s | mail -s &quot;IQCash Alert&quot; admin@foo.c
         <translation>(デフォルト: 1)</translation>
     </message>
     <message>
-        <source>(must be 19687 for mainnet)</source>
-        <translation>(メインネットでは19687のみ)</translation>
+        <source>(must be 33541 for mainnet)</source>
+        <translation>(メインネットでは33541のみ)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>

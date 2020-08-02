@@ -226,10 +226,10 @@ QT_TRANSLATE_NOOP("iqcash-core", ""
 QT_TRANSLATE_NOOP("iqcash-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("iqcash-core", "(19687 could be used only on mainnet)"),
+QT_TRANSLATE_NOOP("iqcash-core", "(33541 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("iqcash-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("iqcash-core", "(default: 1)"),
-QT_TRANSLATE_NOOP("iqcash-core", "(must be 19687 for mainnet)"),
+QT_TRANSLATE_NOOP("iqcash-core", "(must be 33541 for mainnet)"),
 QT_TRANSLATE_NOOP("iqcash-core", "<category> can be:"),
 QT_TRANSLATE_NOOP("iqcash-core", "Accept command line and JSON-RPC commands"),
 QT_TRANSLATE_NOOP("iqcash-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
