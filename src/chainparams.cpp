@@ -107,8 +107,8 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 10 * 40; // IQCash: 1 day
-        nTargetSpacing = 1 * 40;  // IQCash: 40 seconds
+        nTargetTimespan = 24 * 40 * 60; // IQCash: 1 day
+        nTargetSpacing = 1 * 60;  // IQCash: 60 seconds
         nMaturity = 50;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 4000000000 * COIN;
