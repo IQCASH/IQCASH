@@ -1617,19 +1617,48 @@ double ConvertBitsToDouble(unsigned int nBits)
 
 int64_t GetBlockValue(int nHeight)
 {
-    if (nHeight == 0) {
-        return 139441613 * COIN;
-    } else if (nHeight <= 96513959) {
-        return 36 * COIN;
-    } else if (nHeight == 96513960) {
-        return 13 * COIN;
-    }
-    return 0;
+	if (nHeight == 0) return 1845000 * COIN; // Inital Coins for ICO
+
+	if(nHeight > 0 && nHeight <= 750) { return 18.20 * COIN; } //POW
+	
+	  else if (nHeight >      751  && nHeight <=    526350) { return 9.10 * COIN;
+	} else if (nHeight >   526351  && nHeight <=   1051950) { return 8.00 * COIN;
+	} else if (nHeight >  1051951  && nHeight <=   1577550) { return 7.05 * COIN;
+	} else if (nHeight >  1577551  && nHeight <=   2103150) { return 6.20 * COIN;
+	} else if (nHeight >  2103151  && nHeight <=   2628750) { return 5.46 * COIN;
+	} else if (nHeight >  2628751  && nHeight <=   3154350) { return 4.80 * COIN;
+	} else if (nHeight >  3154351  && nHeight <=   3679950) { return 4.23 * COIN;
+	} else if (nHeight >  3679951  && nHeight <=   4205550) { return 3.72 * COIN;
+	} else if (nHeight >  4205551  && nHeight <=   4731150) { return 3.27 * COIN;
+	} else if (nHeight >  4731151  && nHeight <=   5256750) { return 2.88 * COIN;
+	} else if (nHeight >  5256751  && nHeight <=   5782350) { return 2.68 * COIN;
+	} else if (nHeight >  5782351  && nHeight <=   6307950) { return 2.49 * COIN;
+	} else if (nHeight >  6307951  && nHeight <=   6833550) { return 2.32 * COIN;
+	} else if (nHeight >  6833551  && nHeight <=   7359150) { return 2.15 * COIN;
+	} else if (nHeight >  7359151  && nHeight <=   7884750) { return 2.00 * COIN;
+	} else if (nHeight >  7884751  && nHeight <=   8410350) { return 1.86 * COIN;
+	} else if (nHeight >  8410351  && nHeight <=   8935950) { return 1.73 * COIN;
+	} else if (nHeight >  8935951  && nHeight <=   9461550) { return 1.61 * COIN;
+	} else if (nHeight >  9461551  && nHeight <=   9987150) { return 1.50 * COIN;
+	} else if (nHeight >  9987151  && nHeight <=  10512750) { return 1.39 * COIN;
+	} else if (nHeight > 10512751  && nHeight <=  11038350) { return 1.30 * COIN;
+	} else if (nHeight > 11038351  && nHeight <=  11563950) { return 1.21 * COIN;
+	} else if (nHeight > 11563951  && nHeight <=  12089550) { return 1.12 * COIN;
+	} else if (nHeight > 12089551  && nHeight <=  12615150) { return 1.04 * COIN;
+	} else if (nHeight > 12615151  && nHeight <=  13140750) { return 0.97 * COIN;
+	} else if (nHeight > 13140751  && nHeight <=  13666350) { return 0.90 * COIN;
+	} else if (nHeight > 13666351  && nHeight <=  14191950) { return 0.84 * COIN;
+	} else if (nHeight > 14191951  && nHeight <=  14717550) { return 0.78 * COIN;
+	} else if (nHeight > 14717551  && nHeight <=  15243150) { return 0.73 * COIN;
+	} else if (nHeight > 15243151  && nHeight <=  15768750) { return 0.67 * COIN;
+	} else if (nHeight > 15768751) { return 0.5 * COIN;
+	}
+	return 0;
 }
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {
-    int64_t ret = blockValue / 2;
+    int64_t ret = (blockValue / 100) * 70;
     return ret;
 }
 
